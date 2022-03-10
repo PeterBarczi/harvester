@@ -16,20 +16,20 @@ install:
   networks:
     harvester-mgmt:
       interfaces:
-      - name: eno12
-      - name: eno13
-      default_route: true
+      - name: eno1
+      - name: eno2
+      default_route: false
       method: dhcp
       bond_options:
         mode: active-backup
         miimon: "100"
     harvester-vlan:
       interfaces:
-      - name: ens1f0
-      - name: ens1f1
+      - name: eno1
+      - name: eno2
       method: none
       bond_options:
-        mode: 802.3ad
+        mode: active-backup
         miimon: "100" 
   device: /dev/sdc
   iso_url: http://172.27.16.105:8000/harvester-v1.0.0-amd64.iso
