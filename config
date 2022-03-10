@@ -1,0 +1,41 @@
+token: dualedu
+os:
+  ssh_authorized_keys:
+    - ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEArgq5uk0Dm+wdCP5jzvvh8PccmkfhfgRlOKiYaFxRtvsNz7DuxsdY8dRkNi7gkEtdfAyxgR99Osr4sj7Tfk97UfD2qHTYnvVyves3JCvAoLzc4ZtvReR8cQJavVPerKcXwXm8LVnVkzQrsiVgvXosgb+3Fewosn7WLUYA0XvNYzAA1LpgfdtG1+VkQFvrzsbR9nP/pVflnsKaRJzRBVsf32j63Ki8RVSTCAvWbWJTLCMvDl8aliFaOLYyYIE9vno9HsELkjqMF+DEOpxvmW+oKE+0GPMlrp4mM2GptVzUUzlPwGip5ZVjpZYCA3BYSZ0gXU8GRBXPmnSFkTELP9vdeQ== osadmin_key
+  hostname: node201
+  modules:
+    - kvm
+    - nvme
+  dns_nameservers:
+    - 8.8.8.8
+    - 1.1.1.1
+  ntp_servers:
+    - sk.pool.ntp.org
+  password: "$1$D6LSNtGG$zA0k3W1FwPS/XACrW4CkH/"
+install:
+  mode: create
+  networks:
+    harvester-mgmt:
+      interfaces:
+      - name: eno12
+      - name: eno13
+      default_route: true
+      method: static
+      ip: 192.168.24.11
+      subnet_mask: 255.255.255.0
+      gateway: 192.168.24.1
+      bond_options:
+        mode: active-backup
+        miimon: "100"
+    harvester-vlan:
+      interfaces:
+      - name: ens1f0
+      - name: ens1f1
+      method: none
+      bond_options:
+        mode: 802.3ad
+        miimon: "100" 
+  device: /dev/sdc
+  iso_url: http://192.168.24.2/harvester/harvester-amd64-latest.iso
+  vip: 192.168.24.10
+  vip_mode: static
