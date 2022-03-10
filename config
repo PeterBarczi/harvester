@@ -31,7 +31,6 @@ install:
       bond_options:
         mode: active-backup
         miimon: "100" 
-  device: /dev/sdc
+  device: /dev/sda
   iso_url: http://172.27.16.105:8000/harvester-v1.0.0-amd64.iso
-  vip: 192.168.24.10
-  vip_mode: static
+  vip_mode: dhcp
