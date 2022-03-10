@@ -36,6 +36,6 @@ install:
         mode: 802.3ad
         miimon: "100" 
   device: /dev/sdc
-  iso_url: http://192.168.24.2/harvester/harvester-amd64-latest.iso
+  iso_url: http://172.27.16.105:8000/harvester-v1.0.0-amd64.iso
   vip: 192.168.24.10
   vip_mode: static
