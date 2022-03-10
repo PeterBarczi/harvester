@@ -10,7 +10,7 @@ os:
     - 8.8.8.8
   ntp_servers:
     - sk.pool.ntp.org
-  password: "$1$D6LSNtGG$zA0k3W1FwPS/XACrW4CkH/"
+  password: "$1$NehCsb8Z$Ngcmxw/i0vXMIlwX7qzFg0"
 install:
   mode: create
   networks:
