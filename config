@@ -18,8 +18,11 @@ install:
       interfaces:
       - name: eno1
       - name: eno2
-      default_route: false
-      method: dhcp
+      default_route: true
+      method: static
+      ip: 172.27.16.91
+      subnet_mask: 255.255.255.0
+      gateway: 172.27.16.254
       bond_options:
         mode: active-backup
         miimon: "100"
@@ -33,4 +36,5 @@ install:
         miimon: "100" 
   device: /dev/sda
   iso_url: http://172.27.16.105:8000/harvester-v1.0.0-amd64.iso
-  vip_mode: dhcp
+  vip: 172.27.16.92
+  vip_mode: static
