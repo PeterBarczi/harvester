@@ -5,7 +5,6 @@ os:
   hostname: harvester1
   modules:
     - kvm
-    - nvme
   dns_nameservers:
     - 172.27.16.1
     - 8.8.8.8
@@ -20,10 +19,7 @@ install:
       - name: eno12
       - name: eno13
       default_route: true
-      method: static
-      ip: 192.168.24.11
-      subnet_mask: 255.255.255.0
-      gateway: 192.168.24.1
+      method: dhcp
       bond_options:
         mode: active-backup
         miimon: "100"
